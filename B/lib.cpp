@@ -1,3 +1,4 @@
+#include "lib.h"
 #include <iostream>
 
 void BlibF(){

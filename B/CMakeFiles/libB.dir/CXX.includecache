@@ -1,0 +1,16 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/charon/Desktop/CmakeTP/B/lib.cpp
+lib.h
+/home/charon/Desktop/CmakeTP/B/lib.h
+iostream
+-
+
+/home/charon/Desktop/CmakeTP/B/lib.h
+

@@ -1,7 +1,7 @@
-cmake_minimum_required(VERSION 3.6)
+cmake_minimum_required(VERSION 3.5)
 project(libB)
 
-set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDART 11)
 
 set(SOURCE_FILES lib.cpp)
 
