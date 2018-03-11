@@ -3,22 +3,20 @@ project(CmakeTP)
 
 set(CMAKE_CXX_STANDARD 11)
 
-#set(cmake_binary_dir "${PROJECT_SOURCE_DIR}/build")
-
-add_custom_command(
-    COMMAND ${PYTHON_EXECUTABLE} A/preparing.py {index.h}.proto
-    DEPENDS generate_protobuf.py ${ProtoName}.proto
-    OUTPUTS index.h
-    COMMENT "Generating code for index.h."
-)
-
-include_directories("${PROJECT_SOURCE_DIR}/A")
-include_directories("${PROJECT_SOURCE_DIR}/B")
-add_subdirectory("B")
-
 set(SOURCE_FILES 
-	A/index.h;
-	B/lib.h;
+	A/preparing.py;
 	C/main.cpp)
 
+#set(cmake_binary_dir "${PROJECT_SOURCE_DIR}/build")
+
+execute_process(COMMAND python preparing.py WORKING_DIRECTORY A)
+execute_process(COMMAND echo "A/preparing.py")
+
+include_directories(A)
+include_directories(B)
+
 add_executable(CmakeTP ${SOURCE_FILES})
+
+add_subdirectory(B)
+
+target_include_directories(CmakeTP PUBLIC ${PROJECT_SOURCE_DIR})
